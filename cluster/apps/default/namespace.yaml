@@ -4,4 +4,5 @@ kind: Namespace
 metadata:
   name: default
   labels:
+    # TODO Check that this does what I think it does
     kustomize.toolkit.fluxcd.io/prune: disabled
