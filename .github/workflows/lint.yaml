@@ -38,7 +38,8 @@ jobs:
       - name: MegaLinter
         uses: oxsecurity/megalinter@v6.1.0
         env:
-          GITHUB_TOKEN: "${{ steps.generate-token.outputs.token }}"
+          # TODO Check if this works
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           # TODO Check if this is ok
           VALIDATE_ALL_CODEBASE: false
           ENABLE_LINTERS: |-
