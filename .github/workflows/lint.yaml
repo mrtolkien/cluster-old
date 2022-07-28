@@ -23,6 +23,7 @@ jobs:
       - name: Lint
         uses: github/super-linter/slim@v4
         env:
+          ACTIONS_RUNNER_DEBUG: true
           VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'workflow_dispatch' }}
           DEFAULT_BRANCH: "${{ env.DEFAULT_BRANCH }}"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
