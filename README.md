@@ -10,11 +10,11 @@ Based on [this template](https://github.com/k8s-at-home/flux-cluster-template/)
 
 ## Apps
 
-### [echo-server.tolki.dev](https://echo-server.tolki.dev/)
+### Echo Server
 
 `nginx` echo server.
 
-### [hajimari.tolki.dev](https://hajimari.tolki.dev/)
+### Hajimari
 
 Home page.
 
