@@ -23,22 +23,25 @@ spec:
       pullPolicy: IfNotPresent
 
     ingress:
-      enabled: true
-      annotations:
-        nginx.ingress.kubernetes.io/proxy-body-size: "100m"
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-          auth_request_set $required_groups 'kubernetes_dashboard';
-      hosts:
-        - dashboard.${CLUSTER_DOMAIN}
-        - dashboard.home.${CLUSTER_DOMAIN}
-      tls:
-        - hosts:
-            - dashboard.${CLUSTER_DOMAIN}
-            - dashboard.home.${CLUSTER_DOMAIN}
+      main:
+        ingressClassName: "nginx"
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            auth_request_set $required_groups 'kubernetes_dashboard';
+        hosts:
+          - dashboard.${SECRET_DOMAIN}
+          - dashboard.home.${SECRET_DOMAIN}
+        tls:
+          - hosts:
+              - dashboard.${SECRET_DOMAIN}
+              - dashboard.home.${SECRET_DOMAIN}
     # protocolHttp: true
     extraArgs:
       - --enable-skip-login
       - --disable-settings-authorizer
       - --enable-insecure-login
-    metricsScraper:
-      enabled: true
+    # metricsScraper:
+    #   enabled: true
