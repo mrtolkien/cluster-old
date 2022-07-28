@@ -42,7 +42,7 @@ Cloud storage and chat.
 - [local-path-provisioner](https://github.com/rancher/local-path-provisioner) - provision persistent local storage with Kubernetes
 <!--
 TODO
-- [kubernetes-dashboard]
+- [kubernetes-dashboard]() - Kubernetes dashboard, only accessible locally
 TODO
 - [grafana]
 -->
